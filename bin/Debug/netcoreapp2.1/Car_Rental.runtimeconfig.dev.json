@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\vesel\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\vesel\\.nuget\\packages"
+    ]
+  }
+}

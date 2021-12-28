@@ -1,0 +1,54 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+
+<p>
+    <a class="btn btn-primary" asp-page="Cars/Create">Add New Car</a>
+</p>
+<h2 align="center">Choose From a range of cars</h2>
+
+<div class="container">
+    <div class="row">
+
+        @{
+
+            int i = 1;
+        }
+        @foreach (var item in Model.Car)
+        {
+
+
+
+            <div class="col-lg-3">
+                <div class="card border border-primary" >
+                    <img src="~/images/@item.ImageUrl" class="img-responsive card-img-top" style="height:150px ; width:100%;">
+                    <div class="card-body">
+                        <h5 class="card-title">Registration Number: @item.CarRegNo</h5>
+                        <h5 class="card-title"> Year: @item.Year</h5>
+                        <h5 class="card-title"> Brand: @item.CarMake</h5>
+                        <h5 class="card-title"> Model: @item.CarModel</h5>
+                        <p class="card-text">Price-per-day : @item.PricePerDay</p>
+                        <a class="btn btn-primary" asp-page="Bookings/Create" asp-route-id="@item.Id">Book Now</a>
+                        <a asp-page="Cars/Edit" class="btn btn-primary" asp-route-id="@item.Id">Edit</a>
+                        <a asp-page="Cars/Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+
+
+                    </div>
+                </div>
+            </div>
+
+            if (i % 4 == 0)
+            {
+                <div class="w-100"></div>
+            }
+            i++;
+
+
+        }
+
+    </div>
+</div>
